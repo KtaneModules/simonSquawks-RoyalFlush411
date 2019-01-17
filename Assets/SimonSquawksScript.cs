@@ -138,6 +138,7 @@ public class SimonSquawksScript : MonoBehaviour
         GetComponent<KMNeedyModule>().HandleStrike();
         stage = 0;
         active = false;
+        inactive = true;
         OnNeedyDeactivation();
         StartCoroutine(IdleFlash());
     }
@@ -148,10 +149,7 @@ public class SimonSquawksScript : MonoBehaviour
         {
             return;
         }
-        if(active)
-        {
-            active = false;
-        }
+        active = false;
         device.selectable.AddInteractionPunch();
         StartCoroutine(PressRoutine(device));
         if(solution[stage] == device.colourInitial)
@@ -247,6 +245,5 @@ public class SimonSquawksScript : MonoBehaviour
                 break;
             }
         }
-        inactive = true;
     }
 }
